@@ -1,0 +1,18 @@
+version: "3.9"  # Use a recent version of the Docker Compose file format
+
+services:
+  postgres:
+    image: postgres:latest  # Use the official PostgreSQL image
+    restart: always  # Automatically restart the container if it crashes
+    ports:
+      - "5432:5432"  # Map local port 5432 to the container's port 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Create a persistent volume for data
+    environment:
+      POSTGRES_USER: yash
+      POSTGRES_DB: management
+      POSTGRES_PASSWORD: password  # Set your desired password
+
+
+volumes:
+  postgres_data:  # Define the persistent volume
